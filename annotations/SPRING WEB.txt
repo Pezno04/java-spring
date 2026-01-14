@@ -1,0 +1,21 @@
+SPRING WEB
+----------
+--------------
+1. Controllers
+--------------
+
+@Controller -> Marks a class as an MVC controller, typically returns views (HTML, Thymeleaf, JSP).
+
+@RestController -> Marks a class as a REST controller, it handles HTTP requests and returns data.
+
+---------------------------
+2. Request Mapping (Routes)
+---------------------------
+
+@RequestMapping -> Base annotation for mapping HTTP requests.
+
+@PostMapping -> create
+@GetMapping -> read
+@PutMapping -> update
+@PatchMapping -> update specific fields
+@DeleteMapping -> delete
