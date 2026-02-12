@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +32,11 @@ public class ItemController {
     }
 
     // criar um novo item
-    @PostMapping
-    public Item criarItem(@RequestParam String nome,
-                          @RequestParam double valor,
-                          @RequestParam int quantidade,
-                          @RequestParam Long fornecedorId) {
+    @PostMapping("/{nome}/{valor}/{quantidade}/{fornecedorId}")
+    public Item criarItem(@PathVariable String nome,
+                          @PathVariable double valor,
+                          @PathVariable int quantidade,
+                          @PathVariable Long fornecedorId) {
 
         // Verifica se o fornecedor existe e é realmente fornecedor
         Usuario fornecedor = usuarioRepository.findById(fornecedorId)
