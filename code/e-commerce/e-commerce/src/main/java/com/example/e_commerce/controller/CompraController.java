@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.example.e_commerce.model.Compra;
 import com.example.e_commerce.repository.CompraRepository;
 import com.example.e_commerce.model.ItemCompra;
+import com.example.e_commerce.model.StatusCompra;
 import com.example.e_commerce.repository.UsuarioRepository;
 import com.example.e_commerce.model.Usuario;
 
@@ -40,11 +41,23 @@ public class CompraController {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         compra.setUsuario(usuario);
-        compra.setDataCompra(LocalDateTime.now());
+        compra.setStatus(StatusCompra.PENDENTE);
 
         for (ItemCompra item : compra.getItensCompraLista()) {
             item.setCompra(compra);
         }
+
+        return compraRepository.save(compra);
+    }
+
+    // finaliza uma compra
+    @PostMapping("/{compraId}/finalizar")
+    public Compra finalizarCompra(@PathVariable Long compraId) {
+        Compra compra = compraRepository.findById(compraId)
+                .orElseThrow(() -> new RuntimeException("Compra não encontrada"));
+
+        compra.setStatus(StatusCompra.FINALIZADA);
+        compra.setDataCompra(LocalDateTime.now());
 
         return compraRepository.save(compra);
     }
@@ -54,5 +67,11 @@ public class CompraController {
     public List<Compra> listarComprasPorUsuario(@PathVariable Long usuarioId) {
         return compraRepository.findByUsuarioId(usuarioId);
     }
-    
+
+    //lista compras por fornecedor
+    @GetMapping("/fornecedor/{fornecedorId}")
+    public List<Compra> listarComprasPorFornecedor(@PathVariable Long fornecedorId) {
+        return compraRepository.findComprasByFornecedorId(fornecedorId);
+    }
+
 }
