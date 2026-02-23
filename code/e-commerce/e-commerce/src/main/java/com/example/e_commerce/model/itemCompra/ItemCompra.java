@@ -1,9 +1,11 @@
-package com.example.e_commerce.model;
+package com.example.e_commerce.model.itemCompra;
 
-import jakarta.persistence.JoinColumn;
+import com.example.e_commerce.model.compra.Compra;
+import com.example.e_commerce.model.item.Item;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
