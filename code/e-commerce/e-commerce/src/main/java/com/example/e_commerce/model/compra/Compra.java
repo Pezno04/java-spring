@@ -1,6 +1,6 @@
 package com.example.e_commerce.model.compra;
 
-import com.example.e_commerce.model.itemCompra.ItemCompra;
+import com.example.e_commerce.model.item_compra.ItemCompra;
 import com.example.e_commerce.model.usuario.Usuario;
 
 import jakarta.persistence.Entity;
@@ -31,6 +31,9 @@ public class Compra {
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
+
+    @Column(nullable = false)
+    private double valorTotal;e
 
     @Column(nullable = false)
     private LocalDateTime dataAbertura;
