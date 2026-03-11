@@ -33,7 +33,7 @@ public class Compra {
     private Usuario usuario;
 
     @Column(nullable = false)
-    private double valorTotal;e
+    private double valorTotal;
 
     @Column(nullable = false)
     private LocalDateTime dataAbertura;

@@ -1,4 +1,4 @@
-package com.example.e_commerce.model.itemCompra;
+package com.example.e_commerce.model.item_compra;
 
 import com.example.e_commerce.model.compra.Compra;
 import com.example.e_commerce.model.item.Item;

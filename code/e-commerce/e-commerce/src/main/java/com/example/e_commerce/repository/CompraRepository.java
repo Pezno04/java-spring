@@ -3,7 +3,7 @@ package com.example.e_commerce.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.example.e_commerce.model.Compra;
+import com.example.e_commerce.model.compra.Compra;
 import java.util.List;
 
 public interface CompraRepository extends JpaRepository<Compra, Long> {
